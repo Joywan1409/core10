@@ -18,5 +18,5 @@ COPY --from=build /app/publish .
 ENTRYPOINT ["dotnet", "MyApp.dll"]
 
 # Expose default ASP.NET ports
-EXPOSE 5000
-EXPOSE 5001
+EXPOSE 3000
+EXPOSE 3000
