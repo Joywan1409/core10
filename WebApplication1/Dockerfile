@@ -14,3 +14,4 @@ COPY --from=build /app/out ./
 # Expose default ASP.NET ports
 EXPOSE 3000
 EXPOSE 3000
+ENTRYPOINT ["dotnet", "WebApplication1.dll"]
