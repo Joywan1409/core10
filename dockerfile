@@ -1,5 +1,5 @@
 # Build stage
-FROM mcr.microsoft.com/dotnet/sdk:10.0 AS build
+FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /src
 
 # Copy project file(s) and restore dependencies
@@ -12,7 +12,11 @@ WORKDIR "/src/MyApp"
 RUN dotnet publish "MyApp.csproj" -c Release -o /app/publish
 
 # Runtime stage
-FROM mcr.microsoft.com/dotnet/aspnet:10.0 AS final
+FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS final
 WORKDIR /app
 COPY --from=build /app/publish .
 ENTRYPOINT ["dotnet", "MyApp.dll"]
+
+# Expose default ASP.NET ports
+EXPOSE 5000
+EXPOSE 5001
