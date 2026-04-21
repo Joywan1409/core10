@@ -18,4 +18,4 @@ app.UseAuthorization();
 
 app.MapRazorPages();
 
-app.Run();
+app.Run("http://0.0.0.0:5000");
